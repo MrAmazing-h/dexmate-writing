@@ -1,0 +1,34 @@
+{
+  "text": "小皇帝咩呀天天开心",
+  "frames": 3654,
+  "fps": 60,
+  "duration_seconds": 60.9,
+  "stroke_count": 53,
+  "tip_error_mean_mm": 0.01405345442259808,
+  "tip_error_max_mm": 5.323363752005698,
+  "mode": "Kinematic visual demonstration. Pen rigidly attached to palm, preset tripod-style fingers. No physical grasp/contact-force validation. Ink follows actual tip on pen-down frames.",
+  "paper_height_m": 0.902,
+  "pen_tip_in_right_hand_m": [
+    -0.14508132953323424,
+    -0.004940358342294896,
+    -0.07743903817595243
+  ],
+  "pen_axis_local": [
+    0.7520332383308558,
+    -0.5514910414426276,
+    0.36097595439881075
+  ],
+  "qpos_columns": 55,
+  "writing_end_frame": 2982,
+  "camera_start_frame": 3114,
+  "top_view_hold_seconds": 5,
+  "joint_position_limit_violations": [],
+  "finite_qpos": true,
+  "pen_down_tip_error_mean_mm": 0.0018410538346152812,
+  "pen_down_tip_error_max_mm": 0.5501652165850366,
+  "all_53_strokes_present": true,
+  "all_9_characters_present": true,
+  "writing_surface_height_error_max_mm": 0.21753681394798274,
+  "paper_margin_min_m": 0.053077148469184654,
+  "right_arm_max_velocity_rad_s": 2.737385059595081
+}

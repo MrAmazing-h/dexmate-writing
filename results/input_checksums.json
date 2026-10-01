@@ -1,0 +1,12 @@
+{
+  "examples/writing_reference.npz": "c228a92de74385fb4925b829e4ada8ee12bab6d9a4d8f16bbc0ca24236d29081",
+  "src/dexmate_writing/data/model_contract.json": "743d77ab5c2845e688bbae85fc97b0a76a5bfb68d7e994e509dab692974c2c60",
+  "src/dexmate_writing/data/strokes/\u5440.json": "de3b4032ea8b4ca9001d537dccca998d86d7b1772e742325fe15cb7701d06f46",
+  "src/dexmate_writing/data/strokes/\u54a9.json": "6ffd68822f2cb76f069ac00c447016475561c4fa8955fe56df7f724d5b63ee65",
+  "src/dexmate_writing/data/strokes/\u5929.json": "8cacde3b91b815c7c667e80e6d4838e3b7dc30ab457763e32d29c1586b0d2446",
+  "src/dexmate_writing/data/strokes/\u5c0f.json": "72bf769c8c3426bffa578502eb8b1532fb1e622ddb6f40ded04e484290c0fe8c",
+  "src/dexmate_writing/data/strokes/\u5e1d.json": "3783607529b4c77c369571ed65e630d833efeb94f8e35f7a186d1ebe074003d2",
+  "src/dexmate_writing/data/strokes/\u5f00.json": "0b4efab7fc994927f4244f1c6d79a7012668a9c7cbdbc40a45d0bcf9b4cbbd49",
+  "src/dexmate_writing/data/strokes/\u5fc3.json": "24b00ca173bbf7403181af1a4f9414f3b9175ed04b17108055c7d9e3fe6d6215",
+  "src/dexmate_writing/data/strokes/\u7687.json": "0698859d20492e7aafa4268d6ea2e509cc5a3596414d940eb873ff6a640bef88"
+}
