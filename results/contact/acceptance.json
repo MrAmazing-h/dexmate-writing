@@ -1,0 +1,12 @@
+{
+  "passed": true,
+  "checks": {
+    "finite_recorded_states": true,
+    "ink_coverage_at_least_99pct": true,
+    "mean_xy_error_below_1mm": true,
+    "contact_coverage_at_least_98pct": true,
+    "no_enabled_collision_deeper_than_1mm": true,
+    "reference_unintended_collision_below_1mm": true
+  },
+  "scope": "Simulation only; manually clamped pen; inherited collision exclusions remain."
+}

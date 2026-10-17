@@ -1,0 +1,6 @@
+{
+  "max_tip_error_mm": 2.6010065281973436,
+  "p95_tip_error_mm": 0.022859390871937568,
+  "max_arm_speed_rad_s": 0.6120779425444672,
+  "max_arm_acceleration_rad_s2": 99.41790376818055
+}

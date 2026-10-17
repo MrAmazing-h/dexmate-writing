@@ -14,4 +14,12 @@ The eight unmodified JSON files in `src/dexmate_writing/data/strokes/` are a sub
 
 ## Demonstration media
 
-The video and screenshots depict the project's kinematic output using the attributed robot and character data. They are demonstrations, not validation of physical writing. Upstream data and asset rights remain applicable.
+The v0.1.0 media depict kinematic output. The v0.2.0 media depict simulated contact-writing rollouts with a fixed pen attachment. Neither validates hardware writing or friction-only grasping. Upstream data and asset rights remain applicable.
+
+## ASCII stroke data
+
+ASCII layout uses [Hershey-Fonts 2.1.0](https://github.com/apshu/HersheyFonts) by apshu, installed as a dependency under its MIT license. Glyphs derive from A. V. Hershey's vector fonts; upstream data notices remain applicable. No robot or Chinese font asset is relicensed by this dependency.
+
+## Calibrated contact station
+
+The v0.2.0 station is a separate research conversion of the same Vega-1P/F5D6 assets. Its archive retains the upstream LICENSE and NOTICE and records station changes in MODIFICATIONS.txt: fixed base, gravity compensation, actuators, inherited collision exclusions/proxies, table/paper and attached compliant-nib pen. It is not an official Dexmate controller.

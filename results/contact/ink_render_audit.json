@@ -1,0 +1,7 @@
+{
+  "segments": 3502,
+  "contact_dots": 3606,
+  "requested_pen_down_frames": 3262,
+  "measured_contact_pen_down_frames": 3260,
+  "ink_source": "All recorded positive-force physical nib-paper contact positions, including pen-up contacts; force-weighted per-interval positions projected onto paper for display. No planned strokes are painted."
+}

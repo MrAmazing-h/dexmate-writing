@@ -1,0 +1,22 @@
+{
+  "release": "0.2.0",
+  "source_demonstrations": "Archived October2-4 contact-writing simulations",
+  "local_tests_passed": 15,
+  "lint": "passed",
+  "format": "passed",
+  "wheel_and_sdist": "built",
+  "recorded_metrics_numeric_fields_recomputed": 289,
+  "recorded_metrics_max_absolute_difference": 0.0,
+  "recorded_layout_exact_match": true,
+  "new_physics_smoke_seconds": 0.3,
+  "full_original_videos_decoded": 2,
+  "visual_review": "Overhead/grip/support images and two-line video frames at15/35/60seconds inspected",
+  "scope": "Packaging and reproducibility validation; not a new full-text physical rollout, random-text benchmark, friction-only grip or hardware test.",
+  "release_asset_sha256": {
+    "ascii_contact_writing.mp4": "bf13eb35635347f4067defac2ae8095c07bdbb932179a3b597a48528ba246f02",
+    "contact_recorded_demo.zip": "05a5571ed4a42de5203cdeb423af95112ef5f56d1cfd20db3fe9a4b101ad5a3f",
+    "vega_1p_contact_station.zip": "71c51752e81259c2e329656f7371696e1d09f663839f34f763b9073dae3b7a9f",
+    "yuxiong_lab_contact.mp4": "777b88ec04da63c9e163dff2821cd12d6f38cf2a7c9ae920c36057a3586a8955"
+  },
+  "wheel_installed_outside_checkout_layout_smoke": "passed"
+}

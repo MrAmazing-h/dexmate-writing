@@ -1,0 +1,7 @@
+{
+  "writing_contact_physics_steps": 62491,
+  "writing_physics_steps": 65240,
+  "left_contact_physics_steps": 154163,
+  "total_physics_steps": 155160,
+  "forces_recorded": "average of solver contact forces over each control interval"
+}

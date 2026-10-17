@@ -1,23 +1,36 @@
 # DexMate Writing
 
-**Chinese handwriting with Vega-1P/F5D6: stroke paths → pen-tip IK → robot motion → visible ink.**
+**Text → automatic layout → IK reference → contact-feedback simulation → measured-contact ink.**
 
 [![CI](https://github.com/MrAmazing-h/dexmate-writing/actions/workflows/ci.yml/badge.svg)](https://github.com/MrAmazing-h/dexmate-writing/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/code-MIT-blue.svg)](LICENSE)
 [![Python](https://img.shields.io/badge/python-3.11%20%7C%203.12-blue.svg)](pyproject.toml)
 
-<p align="center"><img src="assets/writing.jpg" width="720" alt="DexMate writing on a fixed sheet of paper"></p>
-<p align="center"><img src="assets/final_overhead.jpg" width="720" alt="Overhead view of the completed nine-character line"></p>
+<p align="center"><a href="https://github.com/MrAmazing-h/dexmate-writing/releases/download/v0.2.0/ascii_contact_writing.mp4"><img src="assets/contact_preview.gif" width="720" alt="Four-times-speed preview of the recorded two-line contact-writing simulation"></a></p>
+<p align="center">4× preview · <a href="https://github.com/MrAmazing-h/dexmate-writing/releases/download/v0.2.0/ascii_contact_writing.mp4">Watch / download the full 77.58-second video at original speed</a></p>
+<p align="center"><img src="assets/contact_overhead.jpg" width="720" alt="Measured-contact ink: DexMate 2026! and Hello, Lab. on two lines"></p>
 
-[Watch / download the full demonstration](https://github.com/MrAmazing-h/dexmate-writing/releases/download/v0.1.0/dexmate_writes.mp4) · [Release assets](https://github.com/MrAmazing-h/dexmate-writing/releases/tag/v0.1.0) · [Method](docs/METHOD.md) · [Reproduction](docs/REPRODUCIBILITY.md)
+## What changed in v0.2.0
 
-The demonstration writes **小皇帝咩呀天天开心** in one line: nine characters, 53 strokes. The pen begins in the right hand. A custom differential IK solver follows stroke medians using a fixed hand-to-pen transform. Ink follows the actual forward-kinematic pen tip during pen-down segments and is projected onto the paper. After retraction, the camera transitions to a vertical overhead view.
+The original release animated a fixed Chinese phrase. The new pipeline accepts printable ASCII letters, numbers, punctuation and explicit line breaks, wraps and scales the text, generates a smooth joint reference, and executes it with MuJoCo physics. Pen-tip position and normal-force feedback correct the reference while the left hand maintains contact with the table. Ink comes from recorded nib–paper contacts, including unintended pen-up contacts, rather than painting the planned font paths.
 
-**Scope:** a kinematic animation, with a rigid pen attachment and preset fingers. No RL, pen pickup, dynamic grasp, contact-force control, or hardware execution is demonstrated. The NPZ is a pose reference, not a deployable controller.
+**Scope:** the pen remains rigidly attached to the right hand with a passive compliant nib. The base is fixed and the robot links use gravity compensation. This is contact-writing simulation, not friction-only grasping, autonomous pickup-to-writing, tactile grasp adaptation, RL, or hardware validation. Inherited collision exclusions remain, and impact-force peaks are unresolved.
 
-## Quick start
+## Demonstrations
 
-Linux, Python 3.11 recommended. Python 3.12 is covered by CI; macOS and Windows are not validated. FFmpeg is supplied by `imageio-ffmpeg`; rendering requires a working OpenGL backend.
+| Example | Full video | Result |
+| :--- | :--- | :--- |
+| Single-line `Yuxiong Lab` | [45.29 s, original speed](https://github.com/MrAmazing-h/dexmate-writing/releases/download/v0.2.0/yuxiong_lab_contact.mp4) | [Overhead image](assets/contact_single_line.jpg) |
+| Two-line `DexMate 2026!` / `Hello, Lab.` | [77.58 s, original speed](https://github.com/MrAmazing-h/dexmate-writing/releases/download/v0.2.0/ascii_contact_writing.mp4) | [Overhead image](assets/contact_overhead.jpg) |
+| Original Chinese phrase, kinematic | [v0.1.0 video](https://github.com/MrAmazing-h/dexmate-writing/releases/download/v0.1.0/dexmate_writes.mp4) | [Legacy method and commands](docs/KINEMATIC_DEMO.md) |
+
+<p align="center"><img src="assets/contact_grip.jpg" width="49%" alt="Calibrated pen posture; the pen is still attached to the hand"><img src="assets/contact_support.jpg" width="49%" alt="Writing station with the left hand supporting on the table"></p>
+
+The single-line example uses the earlier calibrated letter paths; the configurable Hershey layout was evaluated separately on the two-line example. The photos show archived physical-rollout states. They do not establish autonomous grasping.
+
+## Run your own text
+
+Linux and Python 3.11 are the locally tested setup. Use a new output directory for each run. Rendering needs a working OpenGL backend; FFmpeg is supplied by `imageio-ffmpeg`.
 
 ```bash
 git clone https://github.com/MrAmazing-h/dexmate-writing.git
@@ -25,41 +38,44 @@ cd dexmate-writing
 python -m venv .venv
 source .venv/bin/activate
 pip install -e '.[dev]'
-dexmate-fetch-model --output external
-dexmate-writing build --model-dir external/vega_1p_f5d6 --output outputs/writing
-dexmate-writing solve --output outputs/writing
-dexmate-writing validate --output outputs/writing
-MUJOCO_GL=egl dexmate-writing render --output outputs/writing
+
+# Layout only: no robot model, simulator rollout, or GPU required.
+dexmate-contact-write --text "Hello 123!" --output outputs/layout --layout-only
+
+# Fetch the calibrated station (about 14 MB, SHA-256 checked).
+dexmate-fetch-contact-station --output external
+printf 'DexMate 2026!\nHello, Lab.\n' > text.txt
+MUJOCO_GL=egl dexmate-contact-write --text-file text.txt --output outputs/contact
 ```
 
-On a CPU-only Linux host with OSMesa installed, use `MUJOCO_GL=osmesa`. For a desktop, use the default GLFW backend. Inspect six still frames quickly with `dexmate-writing preview --output outputs/writing`. Rendering does not call `mj_step`; every pose is evaluated by `mj_forward`.
+`--station-dir` selects another copy of the same calibrated station; it is not an adapter for arbitrary robots. `--max-cap-mm 25` reproduces the recorded two-line layout setting. `--no-render` runs planning, physics and evaluation without video; `MUJOCO_GL=osmesa` can be used where OSMesa is installed. Each stage writes a log before reporting completion. The model is shared through a relative symlink, so keep the station directory in place.
 
-The model download is a 14.2 MB ZIP with the exact converted MJCF, URDF and referenced meshes, SHA-256 checked by the downloader. The conversion retains the upstream Apache license; it is separate from the code license. No other project checkout or simulator training environment is required.
+All 95 printable ASCII characters are represented by Hershey `futural`; spaces have no strokes. Chinese text is rejected by this interface. Word wrapping, long-word splitting and scale fitting use a calibrated 280 × 70 mm area, with a minimum capital height of 10 mm. Text that does not fit is rejected. Layout support for a character does not certify its physical execution.
 
-## Recorded demonstration
+## Recorded contact-writing results
 
-| Quantity | Value |
-| :--- | ---: |
-| Robot trajectory | 3,654 frames at 60 Hz |
-| Video duration | 60.9 s |
-| Strokes / characters | 53 / 9 |
-| Mean pen-down position error | 0.00184 mm |
-| Maximum pen-down position error | 0.550 mm |
-| Maximum position error over all frames | 5.323 mm |
-| Joint position limit violations | 0 |
+| Measurement | Single line | Two lines |
+| :--- | ---: | ---: |
+| Mean pen-down XY tracking error | 0.264 mm | 0.257 mm |
+| P95 pen-down XY tracking error | 0.505 mm | 0.503 mm |
+| Stroke coverage within 1 mm of measured ink | 100.00% | 100.00% |
+| Pen-down contact coverage at 100 Hz | 99.699% | 99.939% |
+| Maximum enabled-contact penetration, all 2 kHz substeps | 0.603 mm | 0.725 mm |
+| Peak individual recorded nib contact force | 12.826 N | 21.270 N |
 
-These are numerical IK/FK errors relative to the commanded pen-tip path, **not measured handwriting or hardware accuracy**. Travel frames are included in the all-frame maximum. See [recorded metrics](results/recorded_evaluation.json) and [release validation](results/release_validation.json).
+These are two specific simulation demonstrations, not a success rate over random texts. The force peaks are unresolved impact transients; passing geometric acceptance does **not** establish safe pen pressure. Coverage is the nearest same-stroke physical ink distance from a densely sampled reference path; it differs from time-aligned tracking error. The old kinematic IK error and the new physical-rollout error are not an apples-to-apples improvement comparison.
 
-## Outputs and layout
+See [full two-line metrics](results/contact/metrics.json), [acceptance](results/contact/acceptance.json), [all-substep collision audit](results/contact/substep_collision_audit.json), [two-example CSV](results/contact/showcase_metrics.csv), and [method, feedback equations and reproduction scope](docs/CONTACT_WRITING.md).
 
-- `outputs/writing/writing_reference.npz`: qpos, 60 Hz timing, target/actual pen tip, pen-down mask, stroke/character IDs, model joint ordering, and camera timing.
-- `outputs/writing/validation.json`: independently recomputed FK errors and joint-limit checks.
-- `outputs/writing/videos/dexmate_writes.mp4`: full video; `final_overhead.jpg`: completed writing.
-- `src/dexmate_writing/`: scene construction, trajectory generation, IK, rendering, validation and asset download.
-- `examples/writing_reference.npz`: recorded robot trajectory for inspection and replay.
-- `tests/`: packaged stroke coverage, timing, paper bounds and model-contract checks.
+## Outputs
 
-The fixed phrase and workspace constants live in `handwriting.py`. Changing text length, paper geometry or grip requires rechecking reachability, spacing and the validation gates. This release optimizes reproducibility of the demonstrated phrase rather than promising arbitrary text generation.
+- `layout.json` / `layout_preview.png`: planned layout only.
+- `reference.npz`: 100 Hz joint/pen-tip reference, stroke IDs and pen-down mask.
+- `rollout.npz`: actual simulated joint states, contact forces and ink samples, plus the reference index (which can pause while contact is established).
+- `metrics.json`, `substep_collision_audit.json`, `acceptance.json`: evaluated geometric criteria and limitations.
+- `videos/text_contact_writing.mp4` / `videos/final_overhead.jpg`: physical-state replay with measured-contact ink.
+
+[Release v0.2.0](https://github.com/MrAmazing-h/dexmate-writing/releases/tag/v0.2.0) includes videos, the calibrated station, and a compact recorded reference/rollout bundle. These NPZ files are simulation records, not certified deployment commands. The v0.1.0 Chinese example and `dexmate-writing` CLI remain available unchanged.
 
 ## Development and attribution
 
@@ -70,6 +86,6 @@ pytest -q
 python -m build
 ```
 
-Code: MIT. Robot assets: Dexmate Inc., Apache 2.0. Character medians: Hanzi Writer Data 2.0.1, derived from Make Me a Hanzi / Arphic fonts, under the bundled Arphic Public License. See [third-party notices](THIRD_PARTY_NOTICES.md), [contributing](CONTRIBUTING.md), and [software citation](CITATION.cff).
+Code: MIT. Robot assets: Dexmate Inc., Apache 2.0. ASCII layout: Hershey-Fonts 2.1.0 / Hershey vector fonts. Legacy Chinese stroke data: Hanzi Writer Data 2.0.1, with its bundled Arphic license. See [third-party notices](THIRD_PARTY_NOTICES.md), [contributing](CONTRIBUTING.md), and [citation](CITATION.cff).
 
 Related project: [DexMate Video Retargeting](https://github.com/MrAmazing-h/dexmate-video-retargeting).

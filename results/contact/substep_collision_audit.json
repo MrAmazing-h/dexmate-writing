@@ -1,0 +1,9 @@
+{
+  "dt": 0.0005,
+  "max_penetration_m": 0.000725490460922882,
+  "pairs_exceeding_1mm": {},
+  "simulation_steps": 155160,
+  "pen_is_free_body": false,
+  "pen_weld_constraints": 0,
+  "holding_mode": "manually_loaded_rigid_pen_clamp_with_passive_compliant_nib"
+}

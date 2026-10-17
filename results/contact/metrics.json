@@ -1,0 +1,469 @@
+{
+  "text": "DexMate 2026!\nHello, Lab.",
+  "duration_s": 77.58,
+  "physics_dt_s": 0.0005,
+  "record_fps": 100,
+  "model": "DexMate Vega-1P with F5D6",
+  "base_fixed": true,
+  "robot_gravity_compensation": true,
+  "gravity_m_s2": [
+    0.0,
+    0.0,
+    -9.81
+  ],
+  "holding_mode": "manually_loaded_rigid_pen_clamp_with_passive_compliant_nib",
+  "pen_weld_constraints": 0,
+  "inherited_body_pair_exclusions": 401,
+  "contact_collision_geoms": 80,
+  "pen_down_contact_coverage": 0.9993868792152054,
+  "pen_down_xy_tracking_error_mm": {
+    "mean": 0.25676594653951507,
+    "p95": 0.5028280502738519,
+    "max": 1.2326475499550644
+  },
+  "reference_ik_error_mm": {
+    "mean": 0.01637875852347006,
+    "p95": 0.02285932502586178,
+    "max": 2.6010065281973436
+  },
+  "ink_path_within_1mm_fraction": 1.0,
+  "ink_path_distance_mm": {
+    "mean": 0.1508563046155097,
+    "p95": 0.4061000290408544,
+    "max": 0.946475782197065
+  },
+  "ink_path_metric": "Reference strokes resampled at approximately 0.25 mm arc spacing; nearest same-stroke positive-force physical nib-paper contact point in XY.",
+  "maximum_recorded_nib_contact_force_N": 21.26955625280474,
+  "pen_up_contact_distance_to_intended_strokes_mm": {
+    "mean": 0.17778341310313447,
+    "p95": 0.3819708195332668,
+    "max": 0.622995997405449
+  },
+  "pen_normal_force_N_during_writing": {
+    "mean": 0.3189727872876321,
+    "p95": 0.5674868737778112,
+    "max": 1.2827117629547728
+  },
+  "left_support_contact_coverage_after_1s": 0.9996082528075215,
+  "left_support_normal_force_N_after_1s": {
+    "mean": 1.0075513688196729,
+    "p95": 1.5358009438182785,
+    "max": 3.342593620463287
+  },
+  "pen_attachment_translation_error_mm": {
+    "mean": 1.3010864822352418e-13,
+    "p95": 2.8849445116448467e-13,
+    "max": 5.667848928154234e-13
+  },
+  "pen_attachment_rotation_error_deg": {
+    "mean": 8.036203866587006e-15,
+    "p95": 1.4183372031271544e-14,
+    "max": 2.3532213802911895e-14
+  },
+  "arm_joint_velocity_rad_s": {
+    "mean": 0.026842193778634744,
+    "p95": 0.1357171136912416,
+    "max": 0.5654295386637864
+  },
+  "recorded_tip_fk_consistency_max_m": 0.0,
+  "rollout_penetration_by_pair_mm": {
+    "world:table_top / L_th_l2:": 0.2524201139079141,
+    "world:table_top / L_mf_l2:": 0.1961463486863657,
+    "compliant_nib:pen_nib / world:paper": 0.7254904609228819
+  },
+  "reference_unintended_penetration_by_pair_mm": {},
+  "per_stroke": [
+    {
+      "stroke": 0,
+      "contact_coverage": 1.0,
+      "xy_error_mm": {
+        "mean": 0.2786152238449698,
+        "p95": 0.49161192717565894,
+        "max": 0.5216225989517729
+      },
+      "ink_path_within_1mm_fraction": 1.0,
+      "ink_path_max_distance_mm": 0.1384288936436955
+    },
+    {
+      "stroke": 1,
+      "contact_coverage": 1.0,
+      "xy_error_mm": {
+        "mean": 0.2890503351505394,
+        "p95": 0.5382449077029436,
+        "max": 0.5989675194955945
+      },
+      "ink_path_within_1mm_fraction": 1.0,
+      "ink_path_max_distance_mm": 0.5180400323388905
+    },
+    {
+      "stroke": 2,
+      "contact_coverage": 1.0,
+      "xy_error_mm": {
+        "mean": 0.2529200454928157,
+        "p95": 0.48777950964967126,
+        "max": 1.0866837850831375
+      },
+      "ink_path_within_1mm_fraction": 1.0,
+      "ink_path_max_distance_mm": 0.9371465438971046
+    },
+    {
+      "stroke": 3,
+      "contact_coverage": 1.0,
+      "xy_error_mm": {
+        "mean": 0.3064996460671747,
+        "p95": 0.510022170781854,
+        "max": 0.5764954043948071
+      },
+      "ink_path_within_1mm_fraction": 1.0,
+      "ink_path_max_distance_mm": 0.16675041323147746
+    },
+    {
+      "stroke": 4,
+      "contact_coverage": 1.0,
+      "xy_error_mm": {
+        "mean": 0.2525600839699478,
+        "p95": 0.44758468593668993,
+        "max": 0.5155507015220664
+      },
+      "ink_path_within_1mm_fraction": 1.0,
+      "ink_path_max_distance_mm": 0.11135666629344847
+    },
+    {
+      "stroke": 5,
+      "contact_coverage": 1.0,
+      "xy_error_mm": {
+        "mean": 0.2864331317524669,
+        "p95": 0.5081857530399849,
+        "max": 0.5193037745688946
+      },
+      "ink_path_within_1mm_fraction": 1.0,
+      "ink_path_max_distance_mm": 0.1400205117523165
+    },
+    {
+      "stroke": 6,
+      "contact_coverage": 1.0,
+      "xy_error_mm": {
+        "mean": 0.30066067464580815,
+        "p95": 0.5140450353285244,
+        "max": 0.569699403603321
+      },
+      "ink_path_within_1mm_fraction": 1.0,
+      "ink_path_max_distance_mm": 0.12967543262774686
+    },
+    {
+      "stroke": 7,
+      "contact_coverage": 1.0,
+      "xy_error_mm": {
+        "mean": 0.2702429583771562,
+        "p95": 0.46145809219630063,
+        "max": 0.5028315135470082
+      },
+      "ink_path_within_1mm_fraction": 1.0,
+      "ink_path_max_distance_mm": 0.1302692844139908
+    },
+    {
+      "stroke": 8,
+      "contact_coverage": 1.0,
+      "xy_error_mm": {
+        "mean": 0.2688739594695457,
+        "p95": 0.46660908899084735,
+        "max": 0.47183462431629897
+      },
+      "ink_path_within_1mm_fraction": 1.0,
+      "ink_path_max_distance_mm": 0.1507955362941381
+    },
+    {
+      "stroke": 9,
+      "contact_coverage": 1.0,
+      "xy_error_mm": {
+        "mean": 0.2636725175991268,
+        "p95": 0.43250396959338117,
+        "max": 0.5414722596804352
+      },
+      "ink_path_within_1mm_fraction": 1.0,
+      "ink_path_max_distance_mm": 0.1761036339916373
+    },
+    {
+      "stroke": 10,
+      "contact_coverage": 1.0,
+      "xy_error_mm": {
+        "mean": 0.2509563008125246,
+        "p95": 0.4767306369393668,
+        "max": 0.56935760015747
+      },
+      "ink_path_within_1mm_fraction": 1.0,
+      "ink_path_max_distance_mm": 0.44006716601938883
+    },
+    {
+      "stroke": 11,
+      "contact_coverage": 1.0,
+      "xy_error_mm": {
+        "mean": 0.28605016348551215,
+        "p95": 0.5375359402846307,
+        "max": 0.5546748944052927
+      },
+      "ink_path_within_1mm_fraction": 1.0,
+      "ink_path_max_distance_mm": 0.44314938592214825
+    },
+    {
+      "stroke": 12,
+      "contact_coverage": 1.0,
+      "xy_error_mm": {
+        "mean": 0.2111709251670316,
+        "p95": 0.390875713623182,
+        "max": 0.39430695118702086
+      },
+      "ink_path_within_1mm_fraction": 1.0,
+      "ink_path_max_distance_mm": 0.06117712108436419
+    },
+    {
+      "stroke": 13,
+      "contact_coverage": 1.0,
+      "xy_error_mm": {
+        "mean": 0.24709062802784834,
+        "p95": 0.4822492479252311,
+        "max": 0.9636194734242346
+      },
+      "ink_path_within_1mm_fraction": 1.0,
+      "ink_path_max_distance_mm": 0.946475782197065
+    },
+    {
+      "stroke": 14,
+      "contact_coverage": 1.0,
+      "xy_error_mm": {
+        "mean": 0.22555208814407327,
+        "p95": 0.48339578289200097,
+        "max": 0.6222268841950217
+      },
+      "ink_path_within_1mm_fraction": 1.0,
+      "ink_path_max_distance_mm": 0.5590731026362041
+    },
+    {
+      "stroke": 15,
+      "contact_coverage": 1.0,
+      "xy_error_mm": {
+        "mean": 0.25871370085038337,
+        "p95": 0.5266446404489986,
+        "max": 0.6416521902494174
+      },
+      "ink_path_within_1mm_fraction": 1.0,
+      "ink_path_max_distance_mm": 0.5955391938154825
+    },
+    {
+      "stroke": 16,
+      "contact_coverage": 1.0,
+      "xy_error_mm": {
+        "mean": 0.22514011636238462,
+        "p95": 0.4659959663093344,
+        "max": 0.6505058008353714
+      },
+      "ink_path_within_1mm_fraction": 1.0,
+      "ink_path_max_distance_mm": 0.4937218125123889
+    },
+    {
+      "stroke": 17,
+      "contact_coverage": 1.0,
+      "xy_error_mm": {
+        "mean": 0.2493348773558725,
+        "p95": 0.5370395771255612,
+        "max": 0.6228942423097601
+      },
+      "ink_path_within_1mm_fraction": 1.0,
+      "ink_path_max_distance_mm": 0.5345336925961938
+    },
+    {
+      "stroke": 18,
+      "contact_coverage": 1.0,
+      "xy_error_mm": {
+        "mean": 0.2699678213103536,
+        "p95": 0.43562901400066856,
+        "max": 0.4397425671517951
+      },
+      "ink_path_within_1mm_fraction": 1.0,
+      "ink_path_max_distance_mm": 0.23655284918934233
+    },
+    {
+      "stroke": 19,
+      "contact_coverage": 0.9666666666666667,
+      "xy_error_mm": {
+        "mean": 0.2193037011952563,
+        "p95": 0.5327355778646061,
+        "max": 0.6564819534932119
+      },
+      "ink_path_within_1mm_fraction": 1.0,
+      "ink_path_max_distance_mm": 0.3897534628199201
+    },
+    {
+      "stroke": 20,
+      "contact_coverage": 1.0,
+      "xy_error_mm": {
+        "mean": 0.27320243649877757,
+        "p95": 0.46026187916236994,
+        "max": 0.5127904156104731
+      },
+      "ink_path_within_1mm_fraction": 1.0,
+      "ink_path_max_distance_mm": 0.11394464168469243
+    },
+    {
+      "stroke": 21,
+      "contact_coverage": 1.0,
+      "xy_error_mm": {
+        "mean": 0.2756802467943369,
+        "p95": 0.46268409374177755,
+        "max": 0.617279650831357
+      },
+      "ink_path_within_1mm_fraction": 1.0,
+      "ink_path_max_distance_mm": 0.12208925094845106
+    },
+    {
+      "stroke": 22,
+      "contact_coverage": 1.0,
+      "xy_error_mm": {
+        "mean": 0.2768611829451181,
+        "p95": 0.480707002340113,
+        "max": 0.48917851037222404
+      },
+      "ink_path_within_1mm_fraction": 1.0,
+      "ink_path_max_distance_mm": 0.2103930468495154
+    },
+    {
+      "stroke": 23,
+      "contact_coverage": 1.0,
+      "xy_error_mm": {
+        "mean": 0.25838109390639524,
+        "p95": 0.509689800220582,
+        "max": 1.2326475499550644
+      },
+      "ink_path_within_1mm_fraction": 1.0,
+      "ink_path_max_distance_mm": 0.9044940708543505
+    },
+    {
+      "stroke": 24,
+      "contact_coverage": 1.0,
+      "xy_error_mm": {
+        "mean": 0.27699651954190635,
+        "p95": 0.48792721257204186,
+        "max": 0.5815578297396511
+      },
+      "ink_path_within_1mm_fraction": 1.0,
+      "ink_path_max_distance_mm": 0.16538117641354144
+    },
+    {
+      "stroke": 25,
+      "contact_coverage": 1.0,
+      "xy_error_mm": {
+        "mean": 0.280567410020779,
+        "p95": 0.5426075472464054,
+        "max": 0.6078774086957212
+      },
+      "ink_path_within_1mm_fraction": 1.0,
+      "ink_path_max_distance_mm": 0.23908534828620906
+    },
+    {
+      "stroke": 26,
+      "contact_coverage": 0.993103448275862,
+      "xy_error_mm": {
+        "mean": 0.22790654857643208,
+        "p95": 0.4856700225309258,
+        "max": 0.7133857418708107
+      },
+      "ink_path_within_1mm_fraction": 1.0,
+      "ink_path_max_distance_mm": 0.6975139729051063
+    },
+    {
+      "stroke": 27,
+      "contact_coverage": 1.0,
+      "xy_error_mm": {
+        "mean": 0.26856702572756297,
+        "p95": 0.6449104889172219,
+        "max": 0.7249005665282544
+      },
+      "ink_path_within_1mm_fraction": 1.0,
+      "ink_path_max_distance_mm": 0.6854677194540613
+    },
+    {
+      "stroke": 28,
+      "contact_coverage": 1.0,
+      "xy_error_mm": {
+        "mean": 0.28337611516955846,
+        "p95": 0.4738017332113173,
+        "max": 0.5291490636765878
+      },
+      "ink_path_within_1mm_fraction": 1.0,
+      "ink_path_max_distance_mm": 0.14817117548479314
+    },
+    {
+      "stroke": 29,
+      "contact_coverage": 1.0,
+      "xy_error_mm": {
+        "mean": 0.2634857652565302,
+        "p95": 0.47521691895237766,
+        "max": 0.4991099732823893
+      },
+      "ink_path_within_1mm_fraction": 1.0,
+      "ink_path_max_distance_mm": 0.15570532994139347
+    },
+    {
+      "stroke": 30,
+      "contact_coverage": 1.0,
+      "xy_error_mm": {
+        "mean": 0.25291549528981466,
+        "p95": 0.48327002919085565,
+        "max": 0.5125692406588402
+      },
+      "ink_path_within_1mm_fraction": 1.0,
+      "ink_path_max_distance_mm": 0.16068633719865938
+    },
+    {
+      "stroke": 31,
+      "contact_coverage": 1.0,
+      "xy_error_mm": {
+        "mean": 0.2450342623873906,
+        "p95": 0.47708114060428625,
+        "max": 0.51861803903176
+      },
+      "ink_path_within_1mm_fraction": 1.0,
+      "ink_path_max_distance_mm": 0.41270361416115536
+    },
+    {
+      "stroke": 32,
+      "contact_coverage": 1.0,
+      "xy_error_mm": {
+        "mean": 0.2679639514381595,
+        "p95": 0.45600513105105367,
+        "max": 0.49973099255956166
+      },
+      "ink_path_within_1mm_fraction": 1.0,
+      "ink_path_max_distance_mm": 0.08907482971329289
+    },
+    {
+      "stroke": 33,
+      "contact_coverage": 1.0,
+      "xy_error_mm": {
+        "mean": 0.23007897061791777,
+        "p95": 0.48077149575355943,
+        "max": 0.5665838998598418
+      },
+      "ink_path_within_1mm_fraction": 1.0,
+      "ink_path_max_distance_mm": 0.5393615566990245
+    },
+    {
+      "stroke": 34,
+      "contact_coverage": 1.0,
+      "xy_error_mm": {
+        "mean": 0.1585158756537319,
+        "p95": 0.35964965099813034,
+        "max": 0.3817377229847652
+      },
+      "ink_path_within_1mm_fraction": 1.0,
+      "ink_path_max_distance_mm": 0.34006441999832143
+    }
+  ],
+  "ink_rule": "All measured physical nib-paper contact positions with normal force exceeding 0.005 N, including pen-up contacts; surface projection for rendering.",
+  "limitations": [
+    "Manually loaded pen clamp is modeled as a fixed tool attachment (or a compliant weld in earlier candidates); this is not verified friction-only finger grasping.",
+    "Robot base is fixed and robot links use gravity compensation.",
+    "Inherited self-collision exclusions remain; enabled contact pairs are audited.",
+    "No real-robot validation; actuator and friction parameters are simulation settings."
+  ]
+}
