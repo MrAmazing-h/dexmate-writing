@@ -1,0 +1,21 @@
+{
+  "status": "PASS",
+  "scope": "Complete source-tree vs installed-wheel physical rollout; no hardware or safety acceptance",
+  "max_absolute_differences": {
+    "qpos": 0.0,
+    "qvel": 0.0,
+    "tip": 0.0,
+    "force": 0.0,
+    "ink": 0.0,
+    "target": 0.0,
+    "time_s": 0.0
+  },
+  "versions": {
+    "numpy": "2.3.5",
+    "scipy": "1.17.1",
+    "mujoco": "3.10.0",
+    "Hershey-Fonts": "2.1.0",
+    "imageio": "2.37.3",
+    "Pillow": "12.3.0"
+  }
+}

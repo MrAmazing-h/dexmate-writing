@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="340" viewBox="0 0 1200 340" role="img" aria-label="WriteUrRobo — From text to touch. DexMate and G1 contact-writing simulation.">
+  <defs>
+    <linearGradient id="bg" x2="1" y2="1"><stop stop-color="#101b32"/><stop offset="1" stop-color="#183b44"/></linearGradient>
+    <pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse"><path d="M32 0H0V32" fill="none" stroke="#6ee1cb" stroke-opacity=".06"/></pattern>
+  </defs>
+  <rect width="1200" height="340" rx="24" fill="url(#bg)"/>
+  <rect width="1200" height="340" rx="24" fill="url(#grid)"/>
+  <g font-family="sans-serif">
+    <text x="58" y="66" font-size="15" letter-spacing="4" fill="#72e1cc">ROBOTICS / OPEN RESEARCH</text>
+    <text x="55" y="150" font-size="72" font-weight="700" fill="#f4f7fc">WriteUrRobo</text>
+    <text x="60" y="196" font-size="25" fill="#b9ccdd">From text to touch.</text>
+    <rect x="59" y="240" width="122" height="37" rx="18" fill="#23394e"/>
+    <text x="83" y="265" font-size="17" fill="#f4f7fc">DexMate</text>
+    <rect x="196" y="240" width="158" height="37" rx="18" fill="#23394e"/>
+    <text x="218" y="265" font-size="17" fill="#72e1cc">G1 + Inspire</text>
+    <text x="60" y="311" font-size="14" fill="#8da6bb">TEXT LAYOUT  →  JOINT REFERENCE  →  PHYSICS  →  MEASURED INK</text>
+  </g>
+  <g transform="translate(800 65) rotate(-8 140 100)">
+    <rect width="290" height="205" rx="12" fill="#f1f3ec"/>
+    <path d="M27 70H264M27 108H264M27 146H264" stroke="#a7c4ce" stroke-width="1"/>
+    <path d="M43 135L57 68L74 135L96 72M113 134L127 97L140 134L159 91M173 128Q190 71 214 99Q230 123 246 84" fill="none" stroke="#193c53" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M244 92L274 8" stroke="#48bca7" stroke-width="13" stroke-linecap="round"/>
+    <path d="M244 92L240 107" stroke="#193c53" stroke-width="4" stroke-linecap="round"/>
+  </g>
+</svg>

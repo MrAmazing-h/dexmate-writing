@@ -1,0 +1,23 @@
+{
+  "text": "Hello, Lab.",
+  "frames": 6887,
+  "duration_s": 68.87,
+  "mean_pen_down_xy_error_mm": 0.954624516092315,
+  "p95_pen_down_xy_error_mm": 1.673226928955944,
+  "pen_down_contact_fraction": 0.95077484047402,
+  "pen_up_contact_frames": 440,
+  "peak_nib_normal_force_N": 0.395713703872268,
+  "minimum_contact_distance_by_body_m": {
+    "left_hip_pitch_link / pelvis_contour_link": -0.0011897165707168956,
+    "pelvis_contour_link / right_hip_pitch_link": -0.0011669921817005647,
+    "L_hand_base_link / L_thumb_proximal": -0.004590430595666857,
+    "right_wrist_roll_link / right_wrist_yaw_link": -0.002033634955531499,
+    "R_thumb_proximal / writing_fixture": -0.005201865446212613,
+    "R_middle_intermediate / writing_fixture": -0.00031956054885621827,
+    "R_ring_intermediate / writing_fixture": -0.0009225695647080427,
+    "compliant_nib / world": -0.00018168360431424987
+  },
+  "reference_max_position_error_m": 9.925666268211579e-7,
+  "scope": "Fixed base, gravity-compensated links, rigid pen fixture, compliant nib; not balance, autonomous grasp or hardware validation.",
+  "ink_source": "Actual nib-paper contacts, including unintended pen-up contacts"
+}

@@ -18,4 +18,6 @@ jobs:
       - run: ruff check .
       - run: ruff format --check .
       - run: pytest -q
+      - run: g1-fetch-writing-model --output external/g1
+      - run: G1_MODEL_DIR=external/g1 pytest -q tests/test_g1.py
       - run: python -m build

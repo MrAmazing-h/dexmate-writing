@@ -1,0 +1,26 @@
+{
+  "scope": "Single full fixed-base writing demonstration, not general handwriting or hardware validation",
+  "source_model": {
+    "repository": "unitreerobotics/unitree_ros",
+    "commit": "9926cc2f179ae3b86f4f74087bd32ef0c8b6fd90",
+    "urdf": "robots/g1_description/g1_29dof_rev_1_0_with_inspire_hand_DFQ.urdf",
+    "urdf_sha256": "b8326711e2adffe0944d329b8de3b02296c9dcd59c8360accb39d56d7c21f299",
+    "converted_xml_sha256": "86aa2aca66a3a2ec0e2c32096a4bcf1ef6492caf9d799c3b0a703b2db99b3455",
+    "meshes_verified": 59
+  },
+  "failures_and_corrections": [
+    {"problem": "Missing visual/global in source XML", "correction": "Create explicit offscreen settings when absent"},
+    {"problem": "Open fingers hit desk; initial smoke XY error 22.01 mm and zero nib contact", "correction": "Reposition attached fixture and use a preset curled right-hand configuration; collision masks left enabled"},
+    {"problem": "Direct initial IK jump to line edge selected a bad local branch", "correction": "Station-centre initialization followed by Cartesian continuation to first glyph"},
+    {"problem": "18 mm-capital full line had up to 13.14 mm IK residual", "correction": "Define a separate compact G1 workspace with 12 mm capitals and explicit 120 x 50 mm bounds; reject unreachable references"},
+    {"problem": "Vertical integral feedback could wind up against intentionally preloaded contact", "correction": "Integrate XY error only; retain compliant nib preload without claiming force regulation"}
+  ],
+  "final_record": "Hello, Lab. / 6887 samples at 100 Hz / 68.87 s",
+  "unchanged": "Original DexMate contact and kinematic controller source files",
+  "remaining": [
+    "5.20 mm thumb/fixture enabled-contact overlap, plus inherited hand/hip/wrist overlaps; not a collision-free result",
+    "95.08% writing contact fraction, not continuous contact on every sample",
+    "440 nominal pen-up contact samples remain in the measured ink",
+    "Fixed base, gravity-compensated links and rigid fixture; balance, friction grasp and hardware execution unverified"
+  ]
+}

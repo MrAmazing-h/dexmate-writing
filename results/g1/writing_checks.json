@@ -1,0 +1,11 @@
+{
+  "checks": {
+    "reference_position_error_below_2mm": true,
+    "mean_pen_down_xy_error_below_1mm": true,
+    "p95_pen_down_xy_error_below_2mm": true,
+    "pen_down_contact_at_least_95_percent": true
+  },
+  "writing_tracking_pass": true,
+  "scope": "Tracking/contact criteria only; NOT collision, force safety, balance, grasp or hardware acceptance.",
+  "smoke_truncated": false
+}

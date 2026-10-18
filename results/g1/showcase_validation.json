@@ -1,0 +1,19 @@
+{
+  "input_frames": [
+    1940,
+    1722
+  ],
+  "input_fps": [
+    25.0,
+    25.0
+  ],
+  "input_durations_s": [
+    77.6,
+    68.88
+  ],
+  "output_fps": 25,
+  "output_frames_decoded": 1990,
+  "gif_speed": "4x",
+  "gif_frames": 199,
+  "timing": "Original-speed independent demonstrations; finished panels explicitly hold their last frame. Not synchronized glyphs or a matched benchmark."
+}

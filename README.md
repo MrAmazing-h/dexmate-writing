@@ -1,16 +1,55 @@
-# DexMate Writing
+# WriteUrRobo
 
-**Text → automatic layout → IK reference → contact-feedback simulation → measured-contact ink.**
+<p align="center"><img src="assets/banner.svg" width="100%" alt="WriteUrRobo — From text to touch. DexMate and G1 contact writing."></p>
 
-[![CI](https://github.com/MrAmazing-h/dexmate-writing/actions/workflows/ci.yml/badge.svg)](https://github.com/MrAmazing-h/dexmate-writing/actions/workflows/ci.yml)
+**Two robots. One idea: turn text into measured contact, not just an animation.**
+
+[![CI](https://github.com/MrAmazing-h/WriteUrRobo/actions/workflows/ci.yml/badge.svg)](https://github.com/MrAmazing-h/WriteUrRobo/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/code-MIT-blue.svg)](LICENSE)
 [![Python](https://img.shields.io/badge/python-3.11%20%7C%203.12-blue.svg)](pyproject.toml)
+
+<p align="center"><a href="https://github.com/MrAmazing-h/WriteUrRobo/releases/download/v0.3.0/writeurrobo_showcase.mp4"><img src="assets/showcase.gif" width="100%" alt="DexMate and G1 actual contact-writing simulations side by side, four-times-speed preview"></a></p>
+<p align="center">4× preview · <a href="https://github.com/MrAmazing-h/WriteUrRobo/releases/download/v0.3.0/writeurrobo_showcase.mp4">Original-speed dual showcase</a> · <a href="https://github.com/MrAmazing-h/WriteUrRobo/releases/download/v0.3.0/g1_contact_writing.mp4">G1 full video</a> · <a href="https://github.com/MrAmazing-h/WriteUrRobo/releases/download/v0.3.0/writeurrobo_g1_contact_record_v030.zip">G1 recorded states + video</a></p>
+
+WriteUrRobo brings **DexMate Vega-1P** and **Unitree G1 + Inspire hands** into a reproducible ASCII writing showcase. Both use fixed-base, gravity-compensated simulation with an attached compliant-nib pen. Ink is reconstructed from actual nib–paper contacts, not painted from the intended letters.
+
+| | DexMate Vega-1P | G1 + Inspire |
+| :--- | :--- | :--- |
+| Controller | Tip-position and normal-force feedback | Position servos + bounded Cartesian integral correction |
+| Pen | Rigid attachment, compliant nib | Rigid fixture, compliant nib |
+| Model | Dexmate official assets / calibrated station | Pinned Unitree revision / DFQ Inspire hands |
+| Reproduce | [DexMate instructions](#run-your-own-text) | [G1 method and commands](docs/G1_WRITING.md) |
+
+**Research scope, not a hardware claim:** neither demo proves autonomous grasping, safe pen pressure, collision-free execution or unsupported standing balance. The controllers and stations differ; this is a showcase, not a controlled robot benchmark. Original DexMate commands and releases remain available.
+
+## G1 contact-writing result
+
+<p align="center"><img src="assets/g1_writing.jpg" width="100%" alt="G1 whole-body and hand views, alongside the actual contact trace spelling Hello, Lab."></p>
+
+The complete G1 `Hello, Lab.` run lasts **68.87 s**: mean pen-down XY error **0.955 mm**, P95 **1.673 mm**, contact fraction **95.08%**, peak recorded nib force **0.396 N**. The tracking/contact checks pass for this example only. Contact during 440 nominal pen-up samples is retained in the ink. Enabled-contact overlap remains, including a 5.20 mm thumb/fixture mesh contact; these are not collision-clearance or hardware-safety results. [Metrics](results/g1/metrics.json) · [Checks and scope](results/g1/writing_checks.json).
+
+## G1 quick start
+
+```bash
+git clone https://github.com/MrAmazing-h/WriteUrRobo.git
+cd WriteUrRobo
+python -m venv .venv
+source .venv/bin/activate
+pip install -e '.[dev]'
+g1-fetch-writing-model --output external/g1
+g1-contact-write --model-dir external/g1 --text "Hello, Lab." --output outputs/g1_hello
+MUJOCO_GL=egl g1-render-writing --output outputs/g1_hello
+```
+
+The distribution/import name stays `dexmate-writing` / `dexmate_writing` for compatibility. G1 adds independent commands without changing the original controller. See [station assumptions, data schema and limitations](docs/G1_WRITING.md).
+
+## DexMate showcase
 
 <p align="center"><a href="https://github.com/MrAmazing-h/dexmate-writing/releases/download/v0.2.0/ascii_contact_writing.mp4"><img src="assets/contact_preview.gif" width="720" alt="Four-times-speed preview of the recorded two-line contact-writing simulation"></a></p>
 <p align="center">4× preview · <a href="https://github.com/MrAmazing-h/dexmate-writing/releases/download/v0.2.0/ascii_contact_writing.mp4">Watch / download the full 77.58-second video at original speed</a></p>
 <p align="center"><img src="assets/contact_overhead.jpg" width="720" alt="Measured-contact ink: DexMate 2026! and Hello, Lab. on two lines"></p>
 
-## What changed in v0.2.0
+### DexMate contact-writing pipeline (v0.2.0)
 
 The original release animated a fixed Chinese phrase. The new pipeline accepts printable ASCII letters, numbers, punctuation and explicit line breaks, wraps and scales the text, generates a smooth joint reference, and executes it with MuJoCo physics. Pen-tip position and normal-force feedback correct the reference while the left hand maintains contact with the table. Ink comes from recorded nib–paper contacts, including unintended pen-up contacts, rather than painting the planned font paths.
 
@@ -33,8 +72,8 @@ The single-line example uses the earlier calibrated letter paths; the configurab
 Linux and Python 3.11 are the locally tested setup. Use a new output directory for each run. Rendering needs a working OpenGL backend; FFmpeg is supplied by `imageio-ffmpeg`.
 
 ```bash
-git clone https://github.com/MrAmazing-h/dexmate-writing.git
-cd dexmate-writing
+git clone https://github.com/MrAmazing-h/WriteUrRobo.git
+cd WriteUrRobo
 python -m venv .venv
 source .venv/bin/activate
 pip install -e '.[dev]'
@@ -88,4 +127,4 @@ python -m build
 
 Code: MIT. Robot assets: Dexmate Inc., Apache 2.0. ASCII layout: Hershey-Fonts 2.1.0 / Hershey vector fonts. Legacy Chinese stroke data: Hanzi Writer Data 2.0.1, with its bundled Arphic license. See [third-party notices](THIRD_PARTY_NOTICES.md), [contributing](CONTRIBUTING.md), and [citation](CITATION.cff).
 
-Related project: [DexMate Video Retargeting](https://github.com/MrAmazing-h/dexmate-video-retargeting).
+Related project: [DanceUrRobo](https://github.com/MrAmazing-h/DanceUrRobo) — video-to-robot dance demonstrations.
